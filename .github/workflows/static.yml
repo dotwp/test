@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hipnotik Site</title>
+	<style>
+		body {
+			background-color: #330066;
+			color: white;
+			font-size: 24px;
+			text-align: center;
+			padding-top: 100px;
+		}
+		
+		.spiral {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 0 200px 200px;
+			border-color: transparent transparent transparent transparent;
+			background-image: url("https://i.imgur.com/mPpZHPb.png");
+			background-size: 100% 100%;
+			animation: spin 2s linear infinite;
+		}
+
+		.triangle {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 50px 86.6px 50px;
+			border-color: transparent transparent #FFFFFF transparent;
+			animation: spin 2s linear infinite;
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div>Hoşgeldiniz!</div>
+	<div>İndirmek istediğiniz dosyayı aşağıdaki linke tıklayarak indirebilirsiniz.</div>
+	<a id="download-link" href="dosya-adı.zip" download style="display:none;"> Dosya İndir </a>
+	<div class="spiral"></div>
+	<div class="triangle"></div>
+	<script>
+		window.onload = function() {
+			var link = document.getElementById("download-link");
+			link.click();
+			link.parentNode.removeChild(link);
+		}
+	</script>
+</body>
+</html>
